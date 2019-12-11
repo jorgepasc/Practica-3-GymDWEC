@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="login.css">
+		<script src="login.js"></script>
+		<script src="Usuarios.js"></script>
+	</head>
+	<body>
+		<h1>Login</h1>
+		<div id="formLogin">
+			<label> Usuario: <input type="text" name="user" id="user"></label><br>
+			<label> Password: <input type="password" name="pass" id="pass"></label><br>
+			<p style="color:red; font-weight: bold;" id="error"></p>
+			<button onclick="checkLogin()">ENTRAR</button>
+			<button onclick="modificarPassword()">MODIFICAR PASSWORD</button>
+		</div>
+	</body>
+</html>

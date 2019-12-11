@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Horario</title>
+    <link rel="stylesheet" type="text/css" href="horario.css">
+</head>
+
+<body>
+    <div id="contenido">
+        <div id="cabecera">
+            <header>
+                <h2>GYM TOCHO</h2>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">CALCULADORA IMC</a></li>
+                    <li><a href="fcm.html">CALCULADORA FCM</a></li>
+                    <li><a href="horario.html" class="activo">HORARIOS</a></li>
+                    <li><a href="password.html">CAMBIAR PASSWORD</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="main">
+            <h2>HORARIOS</h2>
+            <table id="horario">
+                <tr>
+                    <th> </th>
+                    <th>LUNES</th>
+                    <th>MARTES</th>
+                    <th>MIERCOLES</th>
+                    <th>JUEVES</th>
+                    <th>VIERNES</th>
+                    <th>SABADO</th>
+                </tr>
+                <tr id="0">
+                    <td>7:00 - 9:00</td>
+                </tr>
+                <tr id="1">
+                    <td>9:00 - 11:00</td>
+                </tr>
+                <tr id="2">
+                    <td>11:00 - 13:00</td>
+                </tr>
+                <tr id="3">
+                    <td>13:00 - 15:00</td>
+                </tr>
+                <tr id="4">
+                    <td>15:00 - 17:00</td>
+                </tr>
+                <tr id="5">
+                    <td>17:00 - 19:00</td>
+                </tr>
+                <tr id="6">
+                    <td>19:00 - 21:00</td>
+                </tr>
+            </table>
+            <div id="checksActividades">
+                <label>MMA<input type="checkbox" id="MMA" value="MMA"
+                        onchange="clickarActividad(this)"></label>
+                <label>Yoga<input type="checkbox" id="Yoga" value="Yoga" onchange="clickarActividad(this)"></label>
+                <label>Boxeo<input type="checkbox" id="Boxeo" value="Boxeo" onchange="clickarActividad(this)"></label>
+                <label>Pilates<input type="checkbox" id="Pilates" value="Pilates" onchange="clickarActividad(this)"></label>
+                <label>BMX<input type="checkbox" id="BMX" value="BMX"
+                        onchange="clickarActividad(this)"></label>
+                <label>Spinning<input type="checkbox" id="Spinning" value="Spinning"
+                        onchange="clickarActividad(this)"></label>
+                <label>Zumba<input type="checkbox" id="Zumba" value="Zumba" onchange="clickarActividad(this)"></label>
+            </div>
+            <h2>FISIOTERAPEUTAS</h2>
+            <table id="horarioFisios">
+                <tr>
+                    <th> </th>
+                    <th>LUNES</th>
+                    <th>MARTES</th>
+                    <th>MIERCOLES</th>
+                    <th>JUEVES</th>
+                    <th>VIERNES</th>
+                </tr>
+                <tr>
+                    <td>10:00 - 10:45</td>
+                </tr>
+                <tr>
+                    <td>10:45 - 11:30</td>
+                </tr>
+                <tr>
+                    <td>11:30 - 12:15</td>
+                </tr>
+                <tr>
+                    <td>12:15 - 13:00</td>
+                </tr>
+                <tr>
+                    <td>13:00 - 13:45</td>
+                </tr>
+                <tr>
+                    <td>17:00 - 17:45</td>
+                </tr>
+                <tr>
+                    <td>17:45 - 18:30</td>
+                </tr>
+                <tr>
+                    <td>18:30 - 19:15</td>
+                </tr>
+                <tr>
+                    <td>19:15 - 20:00</td>
+                </tr>
+                <tr>
+                    <td>20:00 - 20:45</td>
+                </tr>
+                <tr>
+                    <td>20:45 - 21:30</td>
+                </tr>
+            </table>
+            <div id="radioFisios">
+                <label>Jose<input type="radio" value="Jose" name="fisio" onchange="escogerFisio(this)"></label>
+                <label>Maria<input type="radio" value="Maria" name="fisio" onchange="escogerFisio(this)"></label>
+                <label>Pedro<input type="radio" value="Pedro" name="fisio" onchange="escogerFisio(this)"></label>
+                <label>Sergio<input type="radio" value="Sergio" name="fisio" onchange="escogerFisio(this)"></label>
+                <label>Paula<input type="radio" value="Paula" name="fisio" onchange="escogerFisio(this)"></label>
+                <label>Ana<input type="radio" value="Ana" name="fisio" onchange="escogerFisio(this)"></label>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="horario.js"></script>
+
+</html>

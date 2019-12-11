@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div id="contenido">
+        <div id="cabecera">
+            <header>
+                <h2>GYM TOCHO</h2>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="activo">CALCULADORA IMC</a></li>
+                    <li><a href="fcm.html">CALCULADORA FCM</a></li>
+                    <li><a href="horario.html">HORARIOS</a></li>
+                    <li><a href="password.html">CAMBIAR PASSWORD</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="main">
+            <h2>Calculadora IMC</h2>
+            <p>Introduzca su altura en centimetros: </p>
+            <input type="number" id="altura" min="1" max="250" maxlength="3">
+            <p>Introduzca su peso en kilogramos: </p>
+            <input type="number" id="peso" min="1" max="150" maxlength="3">
+            <button onclick="calcularIMC()">CALCULAR</button>
+            <ul id="listadoIMC">
+                <li id="delgadezSevera">&lt;16.00: Infrapeso (delgadez severa)</li>
+                <li id="delgadezModerada">16.00 - 16.99: Infrapeso (delgadez moderada)</li>
+                <li id="delgadez">17.00 - 18.49: Infrapeso (delgadez aceptable)</li>
+                <li id="normal">18.50 - 24.99: Peso normal</li>
+                <li id="sobrepeso">25.00 - 29.99: Sobrepeso</li>
+                <li id="obeso1">30.00 - 34.99: Obeso (Tipo I)</li>
+                <li id="obeso2">35.00 - 40.00: Obeso (Tipo II)</li>
+                <li id="obeso3">&gt;40.00: Obeso (Tipo III)</li>
+            </ul>
+        </div>        
+    </div>
+
+</body>
+
+</html>

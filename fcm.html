@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora FCM</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript">
+		function calcularFCM(){
+			var edad = document.getElementById("inputEdad").value; //obtenemos el valor dado por el usuario
+			var fcm = 0;
+
+			if(edad == ""){ //isNaN no va
+				alert("Introduzca una edad valida");
+				return false;
+			}
+
+			//Aplicamos la formula que corresponda segun si es hombre o mujer
+			if(document.getElementById("hombre").checked){
+				fcm = (209 - (0.7 * edad)).toFixed(0);
+			}else{
+				fcm = (214 - (0.8 * edad)).toFixed(0);
+			}
+
+			//Cargamos los parrafos con la info y los rellenamos con los nuevos calculos
+			var recuperacion = document.getElementById("recuperacion");
+			recuperacion.innerHTML += " = " + (fcm * 0.6).toFixed(0) + " - " + (fcm * 0.7).toFixed(0);
+
+			var aerobica = document.getElementById("aerobica");
+			aerobica.innerHTML += " = " + (fcm * 0.7).toFixed(0) + " - " + (fcm * 0.8).toFixed(0);
+
+			var anaerobica = document.getElementById("anaerobica");
+			anaerobica.innerHTML += " = " + (fcm * 0.8).toFixed(0) + " - " + (fcm * 0.9).toFixed(0);
+
+			var danger = document.getElementById("danger");
+			danger.innerHTML += " = " + (fcm * 0.9).toFixed(0) + " - " + fcm;
+
+			var parrafoFCM = document.getElementById("fcm");
+			parrafoFCM.innerHTML += fcm + " pulsaciones por minuto";
+		}
+	</script>
+</head>
+<body>
+	<div id="contenido">
+		<div id="cabecera">
+            <header>
+                <h2>GYM TOCHO</h2>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">CALCULADORA IMC</a></li>
+                    <li><a href="fcm.html" class="activo">CALCULADORA FCM</a></li>
+                    <li><a href="horario.html">HORARIOS</a></li>
+                    <li><a href="password.html">CAMBIAR PASSWORD</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="main">
+			<h2>Calculadora FCM</h2>
+				<label>Introduce tu edad: <input type="number" id="inputEdad" min="0" max="100"></label>
+				<br><br>
+				<radiogroup id="grupo">
+					Hombre: <input type="radio" name="sexo" id="hombre" value="1" checked="checked">
+					Mujer: <input type="radio" name="sexo" id="mujer" value="2">
+				</radiogroup>		
+				<br><br>
+				<button onclick="calcularFCM()">CALCULAR FCM</button>	
+			<br>
+			<p id="fcm">Su Frecuencia Cardiaca Maxima es: </p>
+			<ul>
+				<li id="recuperacion">Zona de recuperacion (60% - 70%)</li>
+				<li id="aerobica">Zona aerobica (70% - 80%)</li>
+				<li id="anaerobica">Zona anaerobica (80% - 90%)</li>
+				<li id="danger">Linea Roja (90% - 100%)</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+body *{
+	margin: 5px;
+	padding: 4px;
+	font-family: "Candara", Helvetica, sans-serif;
+}
+
+#contenido{
+	margin: 0 auto;
+	width: 80%;
+}
+
+/*ESTILOS LINKS*/
+a {
+	color: white;
+	font-size: 1em;
+	text-decoration: none; 	
+}
+
+.activo{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+a:hover{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#cabecera {
+	margin: 6px;
+	padding: 4px;
+	width: 99%;
+	background-color:darkcyan;
+	display: flex;
+}
+
+/*Titulo*/
+header h2{
+	width: 100%;
+	font-family: "Garamond", Helvetica, sans-serif; /*Fuente personalizada*/
+	font-weight: bold;
+	font-size: 3em;
+	color: white;
+	vertical-align: center;
+}
+
+nav li{
+	display: inline-block;
+	list-style-type: none;
+	margin-top: 15px;
+}
+
+#horario, #horarioFisios{
+	border-spacing: 12px;
+	border-collapse: collapse;
+	border: 2px solid grey;
+	width: 58%;
+}
+
+td{
+    text-align: center;
+}
+
+table tr:first-child{
+	background-color: darkcyan;
+	color: white;
+}
+
+tr td:first-child{
+	background-color: gainsboro;
+}
+
+#checksActividades input{
+	margin: 3px;
+	margin-top: 4px;
+	padding: 3px;
+}
+
+#radioFisios{
+	margin-left: 20px;
+}
+
+.marcado{
+	background-color: #aec6Ef;
+}
+
+.desmarcado{
+	background-color: default;
+}
+
+#main{
+	margin: 20px;
+}
