@@ -1,3 +1,7 @@
+/*
+* Necesito meter las 3 clases en el mismo fichero porque sino no encuentra la referencia a la clase padre. Con modulos??
+*/
+
 class UsuarioWeb {
 	constructor(login, pass, dni) {
 		this.login = login;

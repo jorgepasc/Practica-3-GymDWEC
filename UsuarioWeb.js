@@ -4,6 +4,4 @@ class UsuarioWeb {
 		this.pass = pass;
 		this.dni = dni;
 	}
-
-	
 }

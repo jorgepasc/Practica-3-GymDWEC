@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../horario/horario.css">
+	<script type="text/javascript" src="../Usuarios.js"></script>
+	<script type="text/javascript" src="../Empleados.js"></script>
+	<script type="text/javascript" src="../Actividad.js"></script>
+	<script type="text/javascript" src="../Sala.js"></script>
+	<script type="text/javascript" src="gestor.js"></script>
+	<title></title>
+</head>
+<body>
+	<div id="header">
+		<h2>GYM TOCHO</h2>
+	</div>
+	<div id="main">
+		<h2>HORARIOS</h2>
+		<table id="horario">
+			<tr>
+				<th> </th>
+				<th>LUNES</th>
+				<th>MARTES</th>
+				<th>MIERCOLES</th>
+				<th>JUEVES</th>
+				<th>VIERNES</th>
+				<th>SABADO</th>
+			</tr>
+			<tr id="0">
+				<td>7:00 - 9:00</td>
+			</tr>
+			<tr id="1">
+				<td>9:00 - 11:00</td>
+			</tr>
+			<tr id="2">
+				<td>11:00 - 13:00</td>
+			</tr>
+			<tr id="3">
+				<td>13:00 - 15:00</td>
+			</tr>
+			<tr id="4">
+				<td>15:00 - 17:00</td>
+			</tr>
+			<tr id="5">
+				<td>17:00 - 19:00</td>
+			</tr>
+			<tr id="6">
+				<td>19:00 - 21:00</td>
+			</tr>
+		</table>
+		<button onclick="crearHorario()">CREAR TABLA HORARIO</button>
+		<hr>
+		<h2>EMPLEADOS</h2>
+		<table id="tablaEmpleados">
+			<tr>				
+				<td>NOMBRE</td>
+				<td>DNI</td>
+				<td>TELEFONO</td>
+				<td>HORAS CONSULTA</td>
+				<td>ACTIVIDADES</td>
+				<td>HORAS CLASE</td>
+				<td>HORAS COMUN</td>
+				<td>INFO</td>
+			</tr>
+		</table>		
+		<div id="formEmpleado">
+			<label>
+				Nombre
+				<input type="text" name="nombreEmpleado" id="inputNombreEmpleado">
+			</label>
+			<br>
+			<label>
+				DNI
+				<input type="text" name="dniEmpleado" id="inputDniEmpleado">
+			</label>
+			<br>
+			<label>
+				Telefono
+				<input type="number" name="telefono" id="inputTelefono">
+			</label>
+			<br>
+			<p>Si rellena este campo creara un fisioterapeuta</p>
+			<label>
+				Horas consulta / semana
+				<input type="number" name="horasConsulta" id="inputHorasConsulta">
+			</label>
+			<br>
+			<br>
+			<p>Si rellena estos campos creara un monitor</p>
+			<br>
+			<label>
+				Actividades que imparte
+				<input type="text" name="actividades" id="inputActividades"><!--Deberia hacerse de otra forma, una tabla o algo asi pero simplifico de esta manera-->
+			</label>
+			<br>
+			<label>
+				Horas clase / semana
+				<input type="text" name="horasClase" id="inputHorasClase">
+			</label>
+			<br>
+			<label>
+				Horas comun / semana
+				<input type="text" name="horasComun" id="inputHorasComun">
+			</label>
+			<br>
+
+		</div>
+		<button onclick="crearEmpleado()">CREAR NUEVO EMPLEADO</button>
+		<hr>
+		<!--Crear actividad-->
+		<h2>ACTIVIDADES</h2>		
+			<label>
+				Nombre
+				<input type="text" name="nombreActividad" id="nombreActividad">
+			</label>
+			<br>
+			<label>
+				Duracion (en minutos)
+				<input type="text" name="duracion" id="duracion">
+			</label>
+			<br>
+			<label>
+				Sala
+				<select id="selectorSala"></select>
+			</label>
+			<br>
+			<button onclick="crearActividad()">CREAR NUEVA ACTIVIDAD</button>
+		<hr>
+	</div>
+</body>
+</html>

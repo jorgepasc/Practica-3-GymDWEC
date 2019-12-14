@@ -1,8 +1,8 @@
 // Nos deberiamos conectar a BD o otro origen de datos. Vamos a crear usuarios de ejemplo para simular el login
-//var password = "Pass123#"; //les pongo a los dos la misma por defecto para no liar la cosa
-var usuarioCliente = new UsuarioCliente("jorge", "Pass123#", "123A", 70, 190, 21, "Masculino");
-var usuarioGestor = new UsuarioAdmin("admin", "Admin123%", "123B", "667899766");
+var usuarioCliente = new UsuarioCliente("jorge", "pass", "123A", 70, 190, 21, "Masculino");
+var usuarioGestor = new UsuarioGestor("admin", "admin", "123B", "667899766");
 
+/*
 window.onload = function() {
 	var nuevaPass = localStorage.getItem("pass");
 	if (nuevaPass != ""){
@@ -10,24 +10,25 @@ window.onload = function() {
 		usuarioGestor.pass = nuevaPass;	
 	}
 }
+*/
 
 function checkLogin(){
 	var inputLogin = document.getElementById("user").value;
 	var inputPass = document.getElementById("pass").value;
-
-	if (inputLogin.equals(usuarioCliente.login) && inputPass.equals(usuarioCliente.pass)){
+ 
+	if (inputLogin === usuarioCliente.login && inputPass === usuarioCliente.pass){
 		// Entrar a cliente. Entiendo que cliente y gestor utilizan paginas distintas. 
 		// Si pudiesen acceder a las mismas, igual necesitaria identificar al usuario (bool?) para los permisos
-
+		localStorage.setItem("usuarioCliente", JSON.stringify(usuarioCliente)); // No deja pasar objetos enteros, asi que los pasamos a JSON y los parseamos donde se recojan
+		window.location.assign("../cliente/clientePage.html");
+		//window.location.href = "../cliente/clientePage.html";
 	}
-	else if (inputLogin.equals(usuarioGestor.login) && inputPass.equals(usuarioGestor.pass)){
+	else if (inputLogin === (usuarioGestor.login) && inputPass === (usuarioGestor.pass)){
 		// entrar a admin
+		localStorage.setItem("usuarioGestor", JSON.stringify(usuarioGestor));
+		window.location.href = "../gestor/gestorPage.html";
 	}else{
 		var p = document.getElementById("error");
-		p.innerHTML = "Usuario o contraseña incorrectos"
+		p.innerHTML = "Usuario o contraseña incorrectos";
 	}
 }
-
-function modificarPassword() {
-	localStorage.setItem("password")
-} 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zona personal del cliente</title>
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css"></link>
+	<script type="text/javascript" src="../Usuarios.js"></script>
+	<script defer src="cliente.js"></script>
+</head>
+<body>
+	<header>
+		<div id="cabecera">
+            <header>
+                <h2>GYM TOCHO - cuando le de aqui que vuelva a datos personales</h2>
+            </header>
+            <nav>
+                <ul>                    
+                    <li><a href="../horario/horario.html">HORARIOS</a></li>
+                    <li><a href="../login/password.html">CAMBIAR PASSWORD</a></li>
+                </ul>
+            </nav>
+        </div>
+	</header>
+	<div id="main">
+		<h2>Zona Personal</h2>
+		<h2>Datos personales: </h2>
+		<label>
+			Nombre usuario: 
+			<input type="text" name="name" id="inputName" disabled>
+		</label>
+		<br>
+		<label>
+			Peso (en kg): 
+			<input type="number" name="peso" id="inputPeso">
+		</label>
+		<br>
+		<label>
+			Altura (en cm): 
+			<input type="number" name="altura" id="inputAltura">
+		</label>
+		<br>
+		<label>
+			Edad: 
+			<input type="number" name="edad" id="inputEdad">
+		</label>
+		<br>
+		<label>
+			Sexo:
+			<select name="sexo" disabled>
+				<option value="mujer">Mujer</option>
+				<option value="hombre">Hombre</option>
+			</select>
+		</label>
+		<hr>
+		<label>
+			Historial IMC: 
+			<table id="historialImc">
+				<tr>
+				</tr>
+			</table>
+			<button onclick="calcularIMC">Calcular IMC actual</button>
+		</label>
+		<hr>
+		<label>
+			Frecuencia Cardiaca Maxima (FCM):
+			<input type="number" name="fcm" id="inputFCM" readonly="true">
+			<button onclick="calcularIMC">Calcular FCM actual</button>
+		</label>
+		<hr>
+		<label>
+			Historial maquinas:
+			<table id="historialMaquinas">
+				<tr>
+				</tr>
+			</table>
+			<button onclick="introducirMaquina">Introducir nueva maquina</button>
+		</label>
+
+
+	</div>
+</body>
+</html>

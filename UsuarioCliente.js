@@ -1,4 +1,3 @@
-import UsuarioWeb from 'UsuarioWeb.js';
 class UsuarioCliente extends UsuarioWeb {
 	constructor(login, pass, dni, peso, altura, edad, sexo) {
 		super(login, pass, dni);
@@ -10,6 +9,4 @@ class UsuarioCliente extends UsuarioWeb {
 		this.fcm = 0; // Se calculara mas tarde
 		this.historialMaquinas = null; // Sin implementacion
 	}
-
-
 }

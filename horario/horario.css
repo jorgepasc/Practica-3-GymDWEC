@@ -50,7 +50,7 @@ nav li{
 	margin-top: 15px;
 }
 
-#horario, #horarioFisios{
+table{
 	border-spacing: 12px;
 	border-collapse: collapse;
 	border: 2px solid grey;
@@ -59,6 +59,7 @@ nav li{
 
 td{
     text-align: center;
+    border: 1px solid gainsboro;
 }
 
 table tr:first-child{
@@ -66,7 +67,7 @@ table tr:first-child{
 	color: white;
 }
 
-tr td:first-child{
+#horario tr td:first-child{
 	background-color: gainsboro;
 }
 
