@@ -92,3 +92,8 @@ table tr:first-child{
 #main{
 	margin: 20px;
 }
+
+hr{
+	background-color: darkcyan;
+	height: 2px;
+}

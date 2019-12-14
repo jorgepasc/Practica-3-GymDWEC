@@ -32,3 +32,12 @@ function checkLogin(){
 		p.innerHTML = "Usuario o contraseña incorrectos";
 	}
 }
+
+function copiarTexto(boton){
+	var texto = boton.previousElementSibling;
+	texto.select();	
+  	document.execCommand("copy");
+  	//var copyText = document.querySelector("#input");
+  	//copyText.select();
+  	//document.execCommand("copy");
+}

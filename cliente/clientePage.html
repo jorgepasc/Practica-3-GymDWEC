@@ -10,11 +10,10 @@
 	<header>
 		<div id="cabecera">
             <header>
-                <h2>GYM TOCHO - cuando le de aqui que vuelva a datos personales</h2>
+                <h2>GYM TOCHO</h2>
             </header>
             <nav>
-                <ul>
-                	<li><a href="../fcm.html">CALCULADORA FCM</a></li>
+                <ul>                	
                     <li><a href="../horario/horario.html">HORARIOS</a></li>
                     <li><a href="../login/password.html">CAMBIAR PASSWORD</a></li>
                 </ul>
@@ -22,8 +21,8 @@
         </div>
 	</header>
 	<div id="main">
-		<h2>Zona Personal</h2>
-		<h2>Datos personales: </h2>
+		<h1>Zona Personal</h1>
+		<h3>Datos personales: </h3>
 		<label>
 			Nombre usuario: 
 			<input type="text" name="name" id="inputName" disabled>
@@ -67,12 +66,19 @@
 		</label>
 		<hr>
 		<label>
-			<p id="fcm">FCM</p>			
+			<h3>FCM</h3>
+			<p id="fcm">FCM</p>
+			<ul>
+				<li id="recuperacion"></li>
+				<li id="aerobica"></li>
+				<li id="anaerobica"></li>
+				<li id="danger"></li>
+			</ul>
 			<button onclick="calcularFCM()">Calcular FCM actual</button>
 		</label>
 		<hr>
 		<label>
-			Historial maquinas:
+			<h3>Historial maquinas:</h3>
 			<ul id="listadoMaquinas">
 				<li>Pesas</li>
 			</ul>		

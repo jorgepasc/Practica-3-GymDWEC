@@ -5,7 +5,8 @@ var usuario;
 
 window.onload = function() {
 	crearLabelImc();
-	rellenarDatosPersonales();	
+	rellenarDatosPersonales();
+	calcularFCM();
 }
 
 /*
@@ -14,6 +15,7 @@ window.onload = function() {
 function rellenarDatosPersonales() {
 	usuario = JSON.parse(localStorage.getItem("usuarioCliente"));	
 
+	alert(usuario.pass);
 	var inputName = document.getElementById("inputName");
 	inputName.value = usuario.login;
 
@@ -40,9 +42,9 @@ function rellenarDatosPersonales() {
 	var tablaIMC = document.getElementById("historialImc");
 	for (var i = 0; i < usuario.historialIMC.length; i++){
 		var nuevaFila = tablaIMC.insertRow(-1);
-    	nuevaFila.innerHTML = "<td>" + usuario.historialIMC[i] + "</td><td>" 
+		nuevaFila.innerHTML = "<td>" + usuario.historialIMC[i] + "</td><td>" 
     	+ obtenerEstadoIMC(usuario.historialIMC[i]) + "</td>"; // El texto lo deberiamos tener guardado en un objeto IMC o algo, no calcularlo siempre
-	}
+    }
 }
 
 /*
@@ -50,7 +52,8 @@ function rellenarDatosPersonales() {
 */
 function crearLabelImc() {
 	var labelImc = document.getElementById("labelIMC");
-	labelIMC.innerHTML = "Historial IMC";
+	var titulo = document.createElement("h3");
+	titulo.innerHTML = "Historial IMC";
 
 	//Tabla IMC
 	var tabla = document.createElement("table");
@@ -105,7 +108,23 @@ function calcularFCM() {
 	}
 
 	var fcmParrafo = document.getElementById("fcm");
-	fcmParrafo.innerHTML = " Su frecuencia cardiaca maxima es: " + fcm + " pulsaciones por minuto";
+	fcmParrafo.innerHTML = " Su frecuencia cardiaca maxima es: <b>" + fcm + "</b> pulsaciones por minuto";
+	
+	var recuperacion = document.getElementById("recuperacion");
+	recuperacion.innerHTML = "Zona de recuperacion (60% - 70%) = " 
+	+ (fcm * 0.6).toFixed(0) + " - " + (fcm * 0.7).toFixed(0);
+
+	var aerobica = document.getElementById("aerobica");
+	aerobica.innerHTML = "Zona aerobica (70% - 80%) = " 
+	+ (fcm * 0.7).toFixed(0) + " - " + (fcm * 0.8).toFixed(0);
+
+	var anaerobica = document.getElementById("anaerobica");
+	anaerobica.innerHTML = "Zona anaerobica (80% - 90%) = " 
+	+ (fcm * 0.8).toFixed(0) + " - " + (fcm * 0.9).toFixed(0);
+
+	var danger = document.getElementById("danger");
+	danger.innerHTML = "Linea Roja (90% - 100%) = " + (fcm * 0.9).toFixed(0) + " - " + fcm;
+
 	usuario.fcm = fcm;
 	localStorage.setItem("usuarioCliente", JSON.stringify(usuario));
 }
@@ -116,12 +135,12 @@ function calcularFCM() {
 function calcularIMC() {
 
 	var altura = usuario.altura;
-    var peso = usuario.peso;
+	var peso = usuario.peso;
 
-    if(!validarMedidas(altura, peso)){
-        alert("Sus medidas no son correctas. Recuerde escribir la altura en centimetros y el peso en kilogramos");
-        return false;
-    }
+	if(!validarMedidas(altura, peso)){
+		alert("Sus medidas no son correctas. Recuerde escribir la altura en centimetros y el peso en kilogramos");
+		return false;
+	}
 
     //Formula del IMC
     var imc = (peso / Math.pow((altura) / 100, 2)).toFixed(2);
@@ -144,36 +163,36 @@ function calcularIMC() {
 function obtenerEstadoIMC(imc) {
 	var estadoIMC = "";
 	if(imc < 16){
-        estadoIMC = "Infrapeso (delgadez severa)";        
-    }else if(imc >= 16 && imc < 17){
-        estadoIMC = "Infrapeso (delgadez moderada)";
-    }else if(imc >=17 && imc < 18.5){
-        estadoIMC = "Infrapeso (delgadez aceptable)";        
-    }else if(imc >= 18.5 && imc < 25){
-      	estadoIMC = "Peso normal";
-    }else if(imc >= 25 && imc < 30){
-        estadoIMC = "Sobrepeso";
-    }else if(imc >= 30 && imc < 35){
-        estadoIMC = "Obeso (Tipo I)";
-    }else if(imc >= 35 && imc < 40){
-        estadoIMC = "Obeso (Tipo II)";
-    }else if(imc >= 40){
-        estadoIMC = "Obeso (Tipo III)";
-    }
+		estadoIMC = "Infrapeso (delgadez severa)";        
+	}else if(imc >= 16 && imc < 17){
+		estadoIMC = "Infrapeso (delgadez moderada)";
+	}else if(imc >=17 && imc < 18.5){
+		estadoIMC = "Infrapeso (delgadez aceptable)";        
+	}else if(imc >= 18.5 && imc < 25){
+		estadoIMC = "Peso normal";
+	}else if(imc >= 25 && imc < 30){
+		estadoIMC = "Sobrepeso";
+	}else if(imc >= 30 && imc < 35){
+		estadoIMC = "Obeso (Tipo I)";
+	}else if(imc >= 35 && imc < 40){
+		estadoIMC = "Obeso (Tipo II)";
+	}else if(imc >= 40){
+		estadoIMC = "Obeso (Tipo III)";
+	}
 
-    return estadoIMC;
+	return estadoIMC;
 }
 
 /*
 * Comprobamos que los datos de peso y altura dados por el usuario sean validos
 */
 function validarMedidas(altura, peso){
-    var regex = /^\d{1,3}$/;
-    if(regex.test(altura) && regex.test(peso)){
-        return true;
-    }else{
-        return false;
-    }
+	var regex = /^\d{1,3}$/;
+	if(regex.test(altura) && regex.test(peso)){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 /*

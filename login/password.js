@@ -1,6 +1,6 @@
-var password = ""; 
+var usuario; 
 window.onload = function () {
-	password = localStorage.getItem("pass");
+	usuario = JSON.parse(localStorage.getItem("usuarioCliente"));
 }
 
 
@@ -15,27 +15,27 @@ function validarPassword(){
 	var regexCaracteresEspeciales = /[-_@#$%&]+/;
 	var error = "";
 
-	if (pass.length() < 8) 
+	if (passwordEscrita.length < 8) 
 	{
 		error = "La contraseña es demasiado corta";
 	}
-	else if (pass.length > 16) 
+	else if (passwordEscrita.length > 16) 
 	{
 		error = "La contraseña es demasiado larga";
 	}
-	else if (!pass.match(regexMinusculas))
+	else if (!passwordEscrita.match(regexMinusculas))
 	{
 		error = "La contraseña debe contener al menos una letra minuscula";
 	}
-	else if (!pass.match(regexMayusculas))
+	else if (!passwordEscrita.match(regexMayusculas))
 	{
 		error = "La contraseña debe contener al menos una letra mayuscula";	
 	}
-	else if (!pass.match(regexNumeros))
+	else if (!passwordEscrita.match(regexNumeros))
 	{
 		error = "La contraseña debe contener al menos un numero";	
 	}
-	else if (!pass.match(regexCaracteresEspeciales))
+	else if (!passwordEscrita.match(regexCaracteresEspeciales))
 	{
 		error = "La contraseña debe contener al menos un caracter especial de los siguientes: -_@#$%&";	
 	}
@@ -45,10 +45,9 @@ function validarPassword(){
 	{
 		parrafoError.innerHTML = error + ". Vuelva a intentarlo por favor";
 	}else {
-		parrafoError.innerHTML = "Contraseña modificada correctamente";
-		parrafoError.style.color = "green";
-		password = passwordEscrita;
-		localStorage.setItem("pass", password);
+		alert("Password modificada con exito");
+		localStorage.setItem("usuarioCliente", JSON.stringify(usuario));
+		window.location.href = "../cliente/clientePage.html";
 	}
 }
 

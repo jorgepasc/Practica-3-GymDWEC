@@ -10,8 +10,10 @@
 	<title></title>
 </head>
 <body>
-	<div id="header">
-		<h2>GYM TOCHO</h2>
+	<div id="cabecera">
+		<header>
+			<h2>GYM TOCHO</h2>
+		</header>
 	</div>
 	<div id="main">
 		<h2>HORARIOS</h2>
@@ -107,24 +109,39 @@
 		<button onclick="crearEmpleado()">CREAR NUEVO EMPLEADO</button>
 		<hr>
 		<!--Crear actividad-->
-		<h2>ACTIVIDADES</h2>		
-			<label>
-				Nombre
-				<input type="text" name="nombreActividad" id="nombreActividad">
-			</label>
-			<br>
-			<label>
-				Duracion (en minutos)
-				<input type="text" name="duracion" id="duracion">
-			</label>
-			<br>
-			<label>
-				Sala
-				<select id="selectorSala"></select>
-			</label>
-			<br>
-			<button onclick="crearActividad()">CREAR NUEVA ACTIVIDAD</button>
+		<h2>ACTIVIDADES</h2>
+		<table id="actividades">
+			<tr>
+				<td>NOMBRE</td>
+				<td>DURACION</td>
+				<td>SALA</td>
+			</tr>
+		</table>		
+		<label>
+			Nombre
+			<input type="text" name="nombreActividad" id="nombreActividad">
+		</label>
+		<br>
+		<label>
+			Duracion (en minutos)
+			<input type="number" name="duracion" id="duracion">
+		</label>
+		<br>
+		<label>
+			Sala
+			<select id="selectorSala"></select>
+		</label>
+		<br>
+		<button onclick="crearActividad()">CREAR NUEVA ACTIVIDAD</button>
 		<hr>
+		<h2>Salas</h2>
+		<table id="salas">
+			<tr>
+				<td>ID SALA</td>
+				<td>CAPACIDAD</td>
+				<td>ACTIVIDADES</td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

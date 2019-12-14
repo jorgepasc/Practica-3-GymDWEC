@@ -4,23 +4,10 @@ var vectorEmpleados = []; // Sera un vector de empleados (padre) para guardar en
 var vectorSalas = [];
 
 window.onload = function () {
-	usuarioGestor = localStorage.getItem("usuarioGestor");
+	usuarioGestor = JSON.parse(localStorage.getItem("usuarioGestor"));	
 	
-	//Creamos actividades por defecto
-	actividad1 = new Actividad("Yoga", 60, 1);
-	actividad2 = new Actividad("Cross-Fit", 45, 2);
-	actividad3 = new Actividad("Zumba", 30, 1);
-
-	vectorActividades.push(actividad1);
-	vectorActividades.push(actividad2);
-	vectorActividades.push(actividad3);
-
-	//Creamos salas por defecto -- No vamos a dar opcion de crear mas
-	sala1 = new Sala(1, 25, vectorActividades); // Las 3 actividades por defecto se pueden hacer en las dos salas
-	sala2 = new Sala(2, 20, vectorActividades);
-
-	vectorSalas.push(sala1);
-	vectorSalas.push(sala2);
+	inicializarActividades();
+	inicializarSalas();
 
 	//Una vez estan creadas las salas rellenamos el desplegable de las actividades para elegir sala
 	var opciones = document.getElementById("selectorSala").options;
@@ -31,6 +18,60 @@ window.onload = function () {
 	var opcion2 = document.createElement("option");
 	opcion2.text = sala2.id;
 	opciones.add(opcion2, sala2.id);
+}	
+
+/*
+* Crea los vectores de actividades y las aniade a la tabla
+*/
+function inicializarActividades() {
+	//Creamos actividades por defecto
+	actividad1 = new Actividad("Yoga", 60, 1);
+	actividad2 = new Actividad("Cross-Fit", 45, 2);
+	actividad3 = new Actividad("Zumba", 30, 1);
+
+	vectorActividades.push(actividad1);
+	vectorActividades.push(actividad2);
+	vectorActividades.push(actividad3);
+
+	//Aniadimos las actividades a una tabla
+	var tablaActividades = document.getElementById("actividades");
+	
+	for (var i = 0; i < vectorActividades.length; i++){
+		var nuevaActividad = tablaActividades.insertRow(-1);
+		nuevaActividad.innerHTML = "<td>" + vectorActividades[i].nombre + "</td><td>" 
+		+ vectorActividades[i].duracion + "</td>"
+		+ "<td>" + vectorActividades[i].sala + "</td>";
+	}
+	
+}
+
+/*
+* Crea las salas por defecto y las aniade a la tabla
+*/
+function inicializarSalas() {	
+	//Creamos salas por defecto -- No vamos a dar opcion de crear mas
+	sala1 = new Sala(1, 25, vectorActividades); // Las 3 actividades por defecto se pueden hacer en las dos salas
+	sala2 = new Sala(2, 20, vectorActividades);
+
+	vectorSalas.push(sala1);
+	vectorSalas.push(sala2);
+
+	//Aniadimos las salas a una tabla
+	var tablaSalas = document.getElementById("salas");
+	
+	var nuevaSala1 = tablaSalas.insertRow(-1);
+	nuevaSala1.innerHTML = "<td>" + sala1.id + "</td><td>" + sala1.capacidad + "</td>";
+
+	var nuevaSala2 = tablaSalas.insertRow(-1);
+	nuevaSala2.innerHTML = "<td>" + sala2.id + "</td><td>" + sala2.capacidad + "</td>";
+
+	var textoActividades;
+	for (var i = 0; i < vectorActividades.length; i++){
+		textoActividades += vectorActividades[i].nombre + " - ";
+	}
+
+	nuevaSala1.innerHTML += "<td>" + textoActividades + "</td>";
+	nuevaSala2.innerHTML += "<td>" + textoActividades + "</td>";
 }
 
 /*
@@ -51,11 +92,9 @@ function crearHorario() {
 				newCell.innerHTML = "<td>" + vectorActividades[indiceAleatorio].nombre + "</td>";
 			}else{
 				tabla.rows[fila].cells[col].innerHTML = "<td>" + vectorActividades[indiceAleatorio].nombre + "</td>";	
-			}
-			
+			}			
 		}
 	}
-
 }
 
 /*
@@ -83,6 +122,13 @@ function crearActividad() {
 
 	var inputDuracion = document.getElementById("duracion");
 	inputDuracion.value = "";
+
+	var tablaActividades = document.getElementById("actividades");
+
+	var nuevaActividad = tablaActividades.insertRow(-1);
+		nuevaActividad.innerHTML = "<td>" + actividad.nombre + "</td><td>" 
+		+ actividad.duracion + "</td>"
+		+ "<td>" + actividad.sala + "</td>";
 
 	return true;
 }
