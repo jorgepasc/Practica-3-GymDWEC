@@ -46,6 +46,7 @@ function validarPassword(){
 		parrafoError.innerHTML = error + ". Vuelva a intentarlo por favor";
 	}else {
 		alert("Password modificada con exito");
+		usuario.pass = passwordEscrita;
 		localStorage.setItem("usuarioCliente", JSON.stringify(usuario));
 		window.location.href = "../cliente/clientePage.html";
 	}

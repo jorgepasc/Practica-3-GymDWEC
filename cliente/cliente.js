@@ -13,9 +13,8 @@ window.onload = function() {
 * Recoge el usuario del login y rellena sus datos personales
 */
 function rellenarDatosPersonales() {
-	usuario = JSON.parse(localStorage.getItem("usuarioCliente"));	
-
-	alert(usuario.pass);
+	usuario = JSON.parse(localStorage.getItem("usuarioCliente"));
+	
 	var inputName = document.getElementById("inputName");
 	inputName.value = usuario.login;
 

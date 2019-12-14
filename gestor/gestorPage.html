@@ -2,10 +2,10 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../horario/horario.css">
-	<script type="text/javascript" src="../Usuarios.js"></script>
-	<script type="text/javascript" src="../Empleados.js"></script>
-	<script type="text/javascript" src="../Actividad.js"></script>
-	<script type="text/javascript" src="../Sala.js"></script>
+	<script type="text/javascript" src="../classes/Usuarios.js"></script>
+	<script type="text/javascript" src="../classes/Empleados.js"></script>
+	<script type="text/javascript" src="../classes/Actividad.js"></script>
+	<script type="text/javascript" src="../classes/Sala.js"></script>
 	<script type="text/javascript" src="gestor.js"></script>
 	<title></title>
 </head>
@@ -14,6 +14,11 @@
 		<header>
 			<h2>GYM TOCHO</h2>
 		</header>
+		<nav>
+			<ul>                	                    
+				<li><a href="../login/login.html">CERRAR SESION</a></li>
+			</ul>
+		</nav>
 	</div>
 	<div id="main">
 		<h2>HORARIOS</h2>
@@ -80,6 +85,7 @@
 				<input type="number" name="telefono" id="inputTelefono">
 			</label>
 			<br>
+			<br>
 			<p>Si rellena este campo creara un fisioterapeuta</p>
 			<label>
 				Horas consulta / semana
@@ -87,8 +93,7 @@
 			</label>
 			<br>
 			<br>
-			<p>Si rellena estos campos creara un monitor</p>
-			<br>
+			<p>Si rellena estos campos creara un monitor</p>			
 			<label>
 				Actividades que imparte
 				<input type="text" name="actividades" id="inputActividades"><!--Deberia hacerse de otra forma, una tabla o algo asi pero simplifico de esta manera-->

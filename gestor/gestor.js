@@ -6,6 +6,7 @@ var vectorSalas = [];
 window.onload = function () {
 	usuarioGestor = JSON.parse(localStorage.getItem("usuarioGestor"));	
 	
+	inicializarEmpleados();
 	inicializarActividades();
 	inicializarSalas();
 
@@ -19,6 +20,19 @@ window.onload = function () {
 	opcion2.text = sala2.id;
 	opciones.add(opcion2, sala2.id);
 }	
+
+/*
+* Crea dos empleados y los aniade a la tabla
+*/
+function inicializarEmpleados() {
+	monitor = new Monitor("Pedro", "123A", "678", "Zumba - Yoga", 10, 20);
+	aniadirEmpleadoTabla(monitor);
+	vectorEmpleados.push(monitor);
+
+	fisio = new Fisioterapeuta("Marina", "123B", "692", 8);
+	aniadirEmpleadoTabla(fisio);
+	vectorEmpleados.push(fisio);
+}
 
 /*
 * Crea los vectores de actividades y las aniade a la tabla
@@ -65,7 +79,7 @@ function inicializarSalas() {
 	var nuevaSala2 = tablaSalas.insertRow(-1);
 	nuevaSala2.innerHTML = "<td>" + sala2.id + "</td><td>" + sala2.capacidad + "</td>";
 
-	var textoActividades;
+	var textoActividades = "";
 	for (var i = 0; i < vectorActividades.length; i++){
 		textoActividades += vectorActividades[i].nombre + " - ";
 	}

@@ -1,10 +1,7 @@
 <html>
 	<head>
-		<!--<link rel="stylesheet" type="text/css" href="login.css">-->		
-		<!--<script type="text/javascript" src="../UsuarioCliente.js"></script>
-		<script type="text/javascript" src="../UsuarioGestor.js"></script>
-		<script type="text/javascript" src="../UsuarioWeb.js"></script>-->
-		<script type="text/javascript" src="../Usuarios.js"></script>
+		<meta charset="utf-8">		
+		<script type="text/javascript" src="../classes/Usuarios.js"></script>
 		<script defer src="login.js"></script>
 		<style>
 			* {
@@ -33,8 +30,7 @@
 			<label> Usuario: <input type="text" name="user" id="user"></label><br>
 			<label> Password: <input type="password" name="pass" id="pass"></label><br>
 			<p style="color: red; font-weight: bold;" id="error"></p>
-			<button onclick="checkLogin()">ENTRAR</button>
-			<!--<button onclick="modificarPassword()">MODIFICAR PASSWORD</button>-->
+			<button onclick="checkLogin()">ENTRAR</button>			
 		</div>
 		<div id="segundo">
 			<h2>Datos para probar: </h2>
