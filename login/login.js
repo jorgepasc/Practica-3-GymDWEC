@@ -1,5 +1,5 @@
 // Nos deberiamos conectar a BD o otro origen de datos. Vamos a crear usuarios de ejemplo para simular el login
-var usuarioCliente = new UsuarioCliente("jorge", "pass", "123A", 70, 190, 21, "Masculino");
+var usuarioCliente = new UsuarioCliente("jorge", "pass", "123A", 70, 190, 21, "Masculino", [17.88, 19.39]);
 var usuarioGestor = new UsuarioGestor("admin", "admin", "123B", "667899766");
 
 /*

@@ -13,7 +13,8 @@
                 <h2>GYM TOCHO - cuando le de aqui que vuelva a datos personales</h2>
             </header>
             <nav>
-                <ul>                    
+                <ul>
+                	<li><a href="../fcm.html">CALCULADORA FCM</a></li>
                     <li><a href="../horario/horario.html">HORARIOS</a></li>
                     <li><a href="../login/password.html">CAMBIAR PASSWORD</a></li>
                 </ul>
@@ -26,6 +27,11 @@
 		<label>
 			Nombre usuario: 
 			<input type="text" name="name" id="inputName" disabled>
+		</label>
+		<br>
+		<label>
+			DNI: 
+			<input type="text" name="dni" id="inputDNI">
 		</label>
 		<br>
 		<label>
@@ -45,34 +51,33 @@
 		<br>
 		<label>
 			Sexo:
-			<select name="sexo" disabled>
+			<select name="sexo" id="sexo" disabled>
 				<option value="mujer">Mujer</option>
 				<option value="hombre">Hombre</option>
 			</select>
 		</label>
+		<button onclick="modificarDatosPersonales()">MODIFICAR DATOS</button>
 		<hr>
-		<label>
+		<label id="labelIMC">
+			<!-- Lo creamos desde JS
 			Historial IMC: 
-			<table id="historialImc">
-				<tr>
-				</tr>
+			<table id="historialImc">												
 			</table>
-			<button onclick="calcularIMC">Calcular IMC actual</button>
+			<button onclick="calcularIMC()">Calcular IMC actual</button>-->
 		</label>
 		<hr>
 		<label>
-			Frecuencia Cardiaca Maxima (FCM):
-			<input type="number" name="fcm" id="inputFCM" readonly="true">
-			<button onclick="calcularIMC">Calcular FCM actual</button>
+			<p id="fcm">FCM</p>			
+			<button onclick="calcularFCM()">Calcular FCM actual</button>
 		</label>
 		<hr>
 		<label>
 			Historial maquinas:
-			<table id="historialMaquinas">
-				<tr>
-				</tr>
-			</table>
-			<button onclick="introducirMaquina">Introducir nueva maquina</button>
+			<ul id="listadoMaquinas">
+				<li>Pesas</li>
+			</ul>		
+			<input type="text" name="name" id="inputMaquinas">
+			<button onclick="introducirMaquina()">Introducir nueva maquina</button>
 		</label>
 
 
